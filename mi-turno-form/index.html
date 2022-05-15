@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/index.css" />
     <script src="/js/bootstrap.min.js"></script>
   </head>
+
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -49,70 +50,34 @@
     </nav>
 
     <div class="container py-4">
-      <div class="card card-form mx-auto text-center">
+      <div class="card card-form mx-auto">
         <div class="card-body">
           <h5 class="card-title">Tu turno</h5>
-          <a
-            href="#"
-            class="btn btn-primary btn-turno rounded-circle position-relative"
-            data-bs-toggle="modal"
-            data-bs-target="#turnoModal"
-          >
-            <h1>A56</h1>
-            <span
-              class="shadow position-absolute top-100 start-50 translate-middle badge rounded-pill text-dark bg-warning d-flex justify-content-center align-items-center gap-1"
-            >
-              A30
-              <!-- Spinner -->
-              <div class="spinner-grow spinner-grow-sm" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
-              <span class="visually-hidden">Turno actual</span>
-            </span>
-          </a>
-          <div class="card-text mt-4">
+          <div class="card-text">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Voluptates, quisquam.
             </p>
-            <small class="text-muted">
-              <i class="bi bi-info-circle-fill"></i>
-              Tiempo de espera por turno: 10min</small
-            >
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Turno: Modal: Eliminar -->
-
-    <div
-      class="modal fade"
-      id="turnoModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="turnoModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="turnoModalLabel">Cancelar turno</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <p>¿Estas seguro de cancelar el turno?</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">
-              Eliminar
-            </button>
-          </div>
+          <form class="d-flex flex-column gap-2">
+            <div class="form-group">
+              <label for="nombre" class="col-form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" />
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-form-label">Correo</label>
+              <input type="text" class="form-control" id="email" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="modulo">Modulo</label>
+              <select class="form-select" id="modulo">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+              </select>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Solicitar" />
+          </form>
         </div>
       </div>
     </div>
