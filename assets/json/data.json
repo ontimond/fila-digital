@@ -8,7 +8,7 @@
   "modulos": [
     {
       "id": "1",
-      "nombre": "Modulo 1",
+      "nombre": "Módulo 1",
       "descripcion": "Atencion al cliente",
       "tiempo": "10 minutos",
       "turnos_en_espera": "0"
@@ -21,7 +21,7 @@
     "estado": "abierto",
     "modulo": {
       "id": "1",
-      "nombre": "Modulo 1",
+      "nombre": "Módulo 1",
       "descripcion": "Atencion al cliente",
       "tiempo": "10 minutos",
       "turnos_en_espera": "4"
