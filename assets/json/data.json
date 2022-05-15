@@ -1,0 +1,30 @@
+{
+  "empresa": {
+    "id": "1",
+    "nombre": "Coca Cola",
+    "logo": "https://www.coca-cola.com/content/dam/brands/global/coca-cola/images/coke-logo.png",
+    "color": "red"
+  },
+  "modulos": [
+    {
+      "id": "1",
+      "nombre": "Modulo 1",
+      "descripcion": "Atencion al cliente",
+      "tiempo": "10 minutos",
+      "turnos_en_espera": "0"
+    }
+  ],
+  "turno": {
+    "id": "1",
+    "fecha": "2020-01-01",
+    "hora": "10:00",
+    "estado": "abierto",
+    "modulo": {
+      "id": "1",
+      "nombre": "Modulo 1",
+      "descripcion": "Atencion al cliente",
+      "tiempo": "10 minutos",
+      "turnos_en_espera": "4"
+    }
+  }
+}
