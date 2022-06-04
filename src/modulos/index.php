@@ -37,9 +37,14 @@ $modules = $query->fetchAll(PDO::FETCH_CLASS, Module::class);
       <li class="list-group-item d-flex gap-2 align-items-center">
         <span class="badge bg-primary badge-pill"><?php echo $turn_count ?></span>
         <div class="flex-fill">Módulo <?php echo $module->name ?></div>
-        <a class="btn btn-sm btn-danger" href="./func-delete.php?id=<?php echo $module->id ?>">Eliminar</a>
-        <button class="btn btn-sm btn-info" onclick="openUpdateModal('<?php echo $module->id ?>', '<?php echo $module->name ?>',  '<?php echo $module->description ?>', '<?php echo $module->average_minutes ?>')">
+        <a href="/modulos/dashboard.php?modulo=<?php echo $module->id ?>" class="btn btn-sm btn-warning">
+          Ver
+        </a>
+        <button class="btn btn-sm btn-outline-info" onclick="openUpdateModal('<?php echo $module->id ?>', '<?php echo $module->name ?>',  '<?php echo $module->description ?>', '<?php echo $module->average_minutes ?>')">
           Actualizar</button>
+        <a class="btn btn-sm btn-outline-danger" href="./func-delete.php?id=<?php echo $module->id ?>">
+          <i class="bi bi-trash"></i>
+        </a>
       </li>
 
     <?php endforeach; ?>

@@ -55,8 +55,17 @@ $timeToWait = $module->average_minutes * $turnsBefore;
 
 <div class="card card-form mx-auto text-center">
   <div class="card-body">
-    <h5 class="card-title">Tu turno</h5>
-    <a href="#" class="btn btn-primary btn-turno rounded-circle position-relative" data-bs-toggle="modal" data-bs-target="#turnoModal">
+    <h5 class="card-title">Tu turno
+      <!-- If turno completado show completed red icon -->
+      <?php if ($turn->completed_at) : ?>
+        <div class="text-danger">
+          TOMADO a las <?php echo date('H:i', strtotime($turn->completed_at)) ?>
+          <i class="bi bi-check-circle text-danger" data-toggle="tooltip" data-placement="top" title="Turno completado"></i>
+        </div>
+      <?php endif ?>
+
+    </h5>
+    <a href="#" class="btn btn-primary btn-turno rounded-circle position-relative <?php if ($turn->completed_at) : ?> disabled <?php endif ?>" data-bs-toggle="modal" data-bs-target="#turnoModal">
       <h1><?php echo "{$module->name}{$turn->id}" ?></h1>
       <span class="shadow position-absolute top-100 start-50 translate-middle badge rounded-pill text-dark bg-warning d-flex justify-content-center align-items-center gap-1">
         <?php echo "{$module->name}{$currentTurn->id}" ?>
@@ -77,11 +86,19 @@ $timeToWait = $module->average_minutes * $turnsBefore;
       <div>
         <i class="bi bi-envelope"></i> <?php echo $turn->user_email ?>
       </div>
-      <div class="alert alert-warning" role="alert">
-        <small>
+      <?php if (!$turn->completed_at && $timeToWait != 0) : ?>
+        <div class="alert alert-warning" role="alert">
+          <small>
+            <i class="bi bi-info-circle-fill"></i>
+            Tiempo de espera: <?php echo $timeToWait ?>min</small>
+        </div>
+      <?php elseif (!$turn->completed_at) : ?>
+        <div class="alert alert-success" role="alert">
           <i class="bi bi-info-circle-fill"></i>
-          Tiempo de espera: <?php echo $timeToWait ?>min</small>
-      </div>
+          Es tu turno!
+
+        </div>
+      <?php endif ?>
     </div>
     <div id="cont_84a3d4a106d093eb1e481948a075f772">
       <script type="text/javascript" async src="https://www.theweather.com/wid_loader/84a3d4a106d093eb1e481948a075f772"></script>
@@ -114,6 +131,7 @@ $timeToWait = $module->average_minutes * $turnsBefore;
   // Get turno query param
   var turno = <?php echo $turn_id ?>;
   var canceled = <?php echo $turn->canceled_at ? 'true' : 'false' ?>;
+  var timeToWait = <?php echo $timeToWait ?>;
 
   if (!canceled) {
     // Set turno to local storage
@@ -126,9 +144,11 @@ $timeToWait = $module->average_minutes * $turnsBefore;
   }
 
   // Update page every n minutes
-  setInterval(function() {
-    window.location.reload();
-  }, (1000 * 60 * <?php echo $timeToWait ?>) 2);
+  if (timeToWait != 0) {
+    setInterval(function() {
+      window.location.reload();
+    }, timeToWait * 60000);
+  }
 </script>
 
 

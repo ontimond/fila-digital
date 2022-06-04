@@ -24,9 +24,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/modulos/index.php">Módulos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/empresa">Empresa</a>
-                    </li>
                 <?php endif; ?>
 
                 <li class="nav-item dropdown">
