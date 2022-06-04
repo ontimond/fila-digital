@@ -9,12 +9,20 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/" aria-current="page">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/turno/index.php">Mi turno</a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Turno
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/turno/index.php">Mi turno</a>
+                        <a class="dropdown-item" href="/turno/registrar.php">Nuevo turno</a>
+                    </div>
                 </li>
+
                 <?php if (isset($_SESSION['user'])) : ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="/modulos">Módulos</a>
+                        <a class="nav-link" href="/modulos/index.php">Módulos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/empresa">Empresa</a>

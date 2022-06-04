@@ -3,6 +3,8 @@ define('USER', 'root');
 define('PASSWORD', 'pr342fi9f3q9238ur23');
 define('HOST', 'mysql');
 define('DATABASE', 'fila_digital');
+mb_internal_encoding('UTF-8');
+mb_http_output('UTF-8');
 
 try {
     $connection = new PDO("mysql:host=" . HOST . ";dbname=" . DATABASE, USER, PASSWORD);
